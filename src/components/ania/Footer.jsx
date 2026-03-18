@@ -9,9 +9,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <span className="font-serif text-2xl text-white block mb-4">
-              Ania <span className="text-ania-blue">Autopalvelu</span>
-            </span>
+            <img src="/ania-logo.png" alt="Ania Autopesula logo" className="h-20 w-auto mb-4 rounded-md bg-white/95 p-2 ring-1 ring-ania-blue/30" />
             <p className="text-white/50 font-sans text-sm leading-relaxed max-w-xs">
               Helsinkiläinen autopesula ja autonhoitopalvelu. Ammattitaitoinen käsinpesu yli 20 vuoden kokemuksella.
             </p>
@@ -49,7 +47,7 @@ export default function Footer() {
                 <span className="text-white">10:00 – 17:00</span>
               </div>
             </div>
-            <p className="text-ania-blue font-sans text-sm mt-4">
+            <p className="text-ania-gold font-sans text-sm mt-4">
               Ei ajanvarausta, tule suoraan!
             </p>
           </div>

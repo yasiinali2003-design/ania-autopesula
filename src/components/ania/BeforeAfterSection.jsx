@@ -63,11 +63,11 @@ function Slider({ before, after, label }) {
       >
         {/* Handle */}
         <div
-          className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 bg-white rounded-full shadow-2xl flex items-center justify-center cursor-grab active:cursor-grabbing border-2 border-[#1E8FE0]"
+          className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 bg-white rounded-full shadow-2xl flex items-center justify-center cursor-grab active:cursor-grabbing border-2 border-ania-blue"
           onMouseDown={(e) => { dragging.current = true; e.preventDefault(); }}
           onTouchStart={(e) => { dragging.current = true; }}
         >
-          <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#1E8FE0] fill-none stroke-current stroke-2">
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-ania-blue fill-none stroke-current stroke-2">
             <path d="M8 12H4m0 0l3-3m-3 3l3 3M16 12h4m0 0l-3-3m3 3l-3 3" />
           </svg>
         </div>
@@ -77,7 +77,7 @@ function Slider({ before, after, label }) {
       <div className="absolute top-3 left-3 bg-black/60 text-white text-[10px] tracking-widest uppercase px-2.5 py-1 rounded-md font-semibold">
         Ennen
       </div>
-      <div className="absolute top-3 right-3 bg-[#1E8FE0] text-white text-[10px] tracking-widest uppercase px-2.5 py-1 rounded-md font-semibold">
+      <div className="absolute top-3 right-3 bg-ania-gold text-ania-navy text-[10px] tracking-widest uppercase px-2.5 py-1 rounded-md font-semibold">
         Jälkeen
       </div>
     </div>
@@ -88,7 +88,7 @@ export default function BeforeAfterSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-[#0B1628] py-20 sm:py-28">
+    <section className="bg-ania-navy py-20 sm:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Header */}
@@ -100,8 +100,8 @@ export default function BeforeAfterSection() {
           className="mb-12"
         >
           <div className="flex items-center gap-3 mb-3">
-            <div className="h-[3px] w-8 bg-[#1E8FE0] rounded-full" />
-            <span className="text-[#1E8FE0] text-[11px] tracking-[0.3em] font-bold uppercase">Tulokset</span>
+            <div className="h-[3px] w-8 bg-ania-blue rounded-full" />
+            <span className="text-ania-gold text-[11px] tracking-[0.3em] font-bold uppercase">Tulokset</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
             Ennen &amp; jälkeen
@@ -117,7 +117,7 @@ export default function BeforeAfterSection() {
               onClick={() => setActive(i)}
               className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide border transition-all duration-200 ${
                 active === i
-                  ? 'bg-[#1E8FE0] text-white border-[#1E8FE0]'
+                  ? 'bg-ania-blue text-white border-ania-blue'
                   : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'
               }`}
             >

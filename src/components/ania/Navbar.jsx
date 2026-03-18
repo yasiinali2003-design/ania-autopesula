@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Menu, X } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,8 +44,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-20">
 
             {/* Logo */}
-            <button onClick={() => scrollTo('hero')} className="font-serif text-xl text-white">
-              Ania <span className="text-ania-blue">Autopalvelu</span>
+            <button onClick={() => scrollTo('hero')} className="rounded-md bg-white/95 p-2 shadow-md ring-1 ring-ania-blue/20">
+              <img src="/ania-logo.png" alt="Ania Autopesula logo" className="h-12 w-auto sm:h-14" />
             </button>
 
             {/* Desktop Nav */}

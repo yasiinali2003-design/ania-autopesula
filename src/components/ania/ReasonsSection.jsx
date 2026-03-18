@@ -13,7 +13,7 @@ const reasons = [
 
 export default function ReasonsSection() {
   return (
-    <section id="reasons" className="bg-[#F5F7FA] py-20 sm:py-28">
+    <section id="reasons" className="bg-ania-surface py-20 sm:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
         {/* Header */}
@@ -25,10 +25,10 @@ export default function ReasonsSection() {
           className="mb-12"
         >
           <div className="flex items-center gap-3 mb-3">
-            <div className="h-[3px] w-8 bg-[#1E8FE0] rounded-full" />
-            <span className="text-[#1E8FE0] text-[11px] tracking-[0.3em] font-bold uppercase">Miksi me</span>
+            <div className="h-[3px] w-8 bg-ania-blue rounded-full" />
+            <span className="text-ania-blue text-[11px] tracking-[0.3em] font-bold uppercase">Miksi me</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#0B1628] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-ania-navy tracking-tight">
             Miksi valita<br className="hidden sm:block" /> Ania Autopalvelu
           </h2>
         </motion.div>
@@ -44,13 +44,13 @@ export default function ReasonsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="bg-white border border-gray-100 hover:border-[#1E8FE0]/20 hover:shadow-md rounded-xl p-6 flex gap-4 transition-all duration-200 group"
+                className="bg-white border border-ania-blue/10 hover:border-ania-blue/30 hover:shadow-md rounded-xl p-6 flex gap-4 transition-all duration-200 group"
               >
-                <div className="w-11 h-11 bg-[#1E8FE0]/10 group-hover:bg-[#1E8FE0]/20 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors mt-0.5">
-                  <Icon className="w-5 h-5 text-[#1E8FE0]" />
+                <div className="w-11 h-11 bg-ania-blue/10 group-hover:bg-ania-blue/20 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors mt-0.5">
+                  <Icon className="w-5 h-5 text-ania-blue" />
                 </div>
                 <div>
-                  <h3 className="text-[#0B1628] font-bold text-[15px] mb-1.5">{r.title}</h3>
+                  <h3 className="text-ania-navy font-bold text-[15px] mb-1.5">{r.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{r.desc}</p>
                 </div>
               </motion.div>

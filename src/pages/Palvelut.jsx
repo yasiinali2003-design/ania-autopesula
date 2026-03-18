@@ -1,14 +1,74 @@
-import React, { useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Phone, ArrowLeft, Check, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+function BeforeAfterSlider({ beforeImage, afterImage }) {
+  const [position, setPosition] = useState(50);
+  const containerRef = useRef(null);
+  const isDragging = useRef(false);
+
+  const updatePosition = useCallback((clientX) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    setPosition((x / rect.width) * 100);
+  }, []);
+
+  const handleMouseMove = useCallback((event) => {
+    if (isDragging.current) updatePosition(event.clientX);
+  }, [updatePosition]);
+
+  const stopDragging = useCallback(() => {
+    isDragging.current = false;
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative h-full w-full cursor-col-resize select-none"
+      onMouseMove={handleMouseMove}
+      onMouseUp={stopDragging}
+      onMouseLeave={stopDragging}
+      onTouchMove={(event) => updatePosition(event.touches[0].clientX)}
+      onTouchEnd={stopDragging}
+    >
+      <img src={beforeImage} alt="Sisätilojen puhdistus ennen" className="absolute inset-0 h-full w-full object-cover" draggable={false} />
+
+      <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}>
+        <img src={afterImage} alt="Sisätilojen puhdistus jälkeen" className="absolute inset-0 h-full w-full object-cover" draggable={false} />
+      </div>
+
+      <div className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-md" style={{ left: `${position}%` }}>
+        <div
+          className="absolute left-1/2 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-ania-blue bg-white shadow-xl"
+          onMouseDown={(event) => {
+            isDragging.current = true;
+            event.preventDefault();
+          }}
+          onTouchStart={() => {
+            isDragging.current = true;
+          }}
+        >
+          <span className="text-ania-blue text-xs font-bold tracking-wide">↔</span>
+        </div>
+      </div>
+
+      <div className="absolute left-3 top-3 rounded-md bg-black/55 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">
+        Ennen
+      </div>
+      <div className="absolute right-3 top-3 rounded-md bg-ania-gold px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-ania-navy">
+        Jälkeen
+      </div>
+    </div>
+  );
+}
 
 const services = [
   {
     id: 'kasinpesu',
-    number: '01',
     title: 'Käsinpesu',
     subtitle: 'Ulkopuolen huolellinen pesu',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85',
+    image: '/kasinpesu-hero.png',
     description: 'Ammattitaitoinen käsinpesu on paras tapa pitää autosi maalipinta kunnossa. Toisin kuin automaattiset pesukoneet, käsinpesu ei naarmuta maalipintaa ja tulokset ovat huomattavasti laadukkaammat.',
     details: [
       'Ulkopuolen huolellinen käsinpesu ammattipesuaineilla',
@@ -20,10 +80,10 @@ const services = [
   },
   {
     id: 'sisapesu',
-    number: '02',
     title: 'Sisätilojen puhdistus',
     subtitle: 'Perusteellinen sisäpesu',
-    image: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1200&q=85',
+    image: '/sisapesu-before-v2.png',
+    afterImage: '/sisapesu-after-v2.png',
     description: 'Auton sisätilat keräävät pölyä, likaa ja bakteereja. Ammattimainen sisäpesu palauttaa sisätilat siistiksi ja raikkaaksi.',
     details: [
       'Kojelaudan ja pintojen puhdistus',
@@ -35,10 +95,9 @@ const services = [
   },
   {
     id: 'kiillotus',
-    number: '03',
     title: 'Kiillotus ja vahaus',
     subtitle: 'Maalipinnan ehostus',
-    image: 'https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=85',
+    image: '/kiillotus-vahaus-v2.png',
     description: 'Kiillotus poistaa naarmut ja pyörremaiset merkit. Vahaus suojaa maalipintaa UV-säteilyltä ja lialta.',
     details: [
       'Pintavirheiden poisto konekiillotuksella',
@@ -50,10 +109,9 @@ const services = [
   },
   {
     id: 'tayshoito',
-    number: '04',
     title: 'Täyshoito',
     subtitle: 'Kattava paketti',
-    image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1200&q=85',
+    image: '/tayshoito-foam.png',
     description: 'Täyshoito yhdistää ulko- ja sisäpesun, kiillotuksen ja suojauksen. Auto palautetaan täydellisessä kunnossa.',
     details: [
       'Ulkopuolen käsinpesu ja kuivaus',
@@ -65,7 +123,6 @@ const services = [
   },
   {
     id: 'yrityspalvelut',
-    number: '05',
     title: 'Yrityspalvelut',
     subtitle: 'Räätälöity ratkaisu',
     image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200&q=85',
@@ -80,7 +137,6 @@ const services = [
   },
   {
     id: 'noutapalvelu',
-    number: '06',
     title: 'Noutapalvelu',
     subtitle: 'Me tulemme luoksesi',
     image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=1200&q=85',
@@ -145,7 +201,6 @@ export default function Palvelut() {
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className={`font-mono text-xs ${active === s.id ? 'text-ania-blue' : 'text-ania-text/40'}`}>{s.number}</span>
                     <span className="font-sans text-sm">{s.title}</span>
                   </div>
                   {active === s.id && <ArrowRight className="w-4 h-4 text-ania-blue" />}
@@ -172,20 +227,25 @@ export default function Palvelut() {
           <div>
             {/* Image */}
             <div className="aspect-[16/7] overflow-hidden mb-10">
-              <img
-                src={activeService.image}
-                alt={activeService.title}
-                className="w-full h-full object-cover"
-              />
+              {activeService.afterImage ? (
+                <BeforeAfterSlider
+                  key={activeService.id}
+                  beforeImage={activeService.image}
+                  afterImage={activeService.afterImage}
+                />
+              ) : (
+                <img
+                  src={activeService.image}
+                  alt={activeService.title}
+                  className="w-full h-full object-cover"
+                />
+              )}
             </div>
 
             {/* Header */}
-            <div className="flex items-start gap-6 mb-8">
-              <span className="font-mono text-5xl text-ania-blue/20">{activeService.number}</span>
-              <div>
-                <p className="text-ania-blue font-sans text-sm uppercase tracking-widest mb-1">{activeService.subtitle}</p>
-                <h2 className="font-serif text-4xl text-ania-navy">{activeService.title}</h2>
-              </div>
+            <div className="mb-8">
+              <p className="text-ania-blue font-sans text-sm uppercase tracking-widest mb-1">{activeService.subtitle}</p>
+              <h2 className="font-serif text-4xl text-ania-navy">{activeService.title}</h2>
             </div>
 
             {/* Description */}

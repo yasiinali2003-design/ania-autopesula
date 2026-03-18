@@ -4,32 +4,33 @@
 
 @layer base {
   :root {
-    /* Ania Autopalvelu Brand Colors */
-    --ania-navy: #1A1A2E;
-    --ania-blue: #2563EB;
-    --ania-steel: #2D4F6C;
-    --ania-surface: #F8F7F5;
-    --ania-text: #2C2C2C;
+    /* Ania logo-based brand colors */
+    --ania-navy: #055e86;
+    --ania-blue: #00b0e0;
+    --ania-steel: #5fbad8;
+    --ania-gold: #d8b000;
+    --ania-surface: #f3fbff;
+    --ania-text: #0f3f58;
     
-    --background: 40 14% 97%;
-    --foreground: 0 0% 17%;
+    --background: 196 80% 98%;
+    --foreground: 202 70% 22%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 17%;
+    --card-foreground: 202 70% 22%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 17%;
-    --primary: 240 25% 14%;
+    --popover-foreground: 202 70% 22%;
+    --primary: 199 93% 29%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 40 14% 97%;
-    --secondary-foreground: 0 0% 17%;
-    --muted: 40 10% 94%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 43 70% 47%;
-    --accent-foreground: 0 0% 100%;
+    --secondary: 197 67% 95%;
+    --secondary-foreground: 202 70% 22%;
+    --muted: 196 40% 93%;
+    --muted-foreground: 202 30% 38%;
+    --accent: 48 100% 42%;
+    --accent-foreground: 202 70% 22%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 10% 88%;
-    --input: 40 10% 88%;
-    --ring: 43 70% 47%;
+    --border: 196 34% 85%;
+    --input: 196 34% 85%;
+    --ring: 195 100% 44%;
     --radius: 0.5rem;
   }
 }

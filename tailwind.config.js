@@ -16,11 +16,12 @@ module.exports = {
   		},
   		colors: {
   			'ania': {
-  				'navy': '#1A1A2E',
-  				'blue': '#2563EB',
-  				'steel': '#2D4F6C',
-  				'surface': '#F8F7F5',
-  				'text': '#2C2C2C',
+  				'navy': '#055E86',
+  				'blue': '#00B0E0',
+  				'steel': '#5FBAD8',
+  				'gold': '#D8B000',
+  				'surface': '#F3FBFF',
+  				'text': '#0F3F58',
   			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

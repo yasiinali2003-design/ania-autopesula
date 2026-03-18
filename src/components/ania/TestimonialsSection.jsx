@@ -24,10 +24,10 @@ export default function TestimonialsSection() {
           className="mb-12"
         >
           <div className="flex items-center gap-3 mb-3">
-            <div className="h-[3px] w-8 bg-[#1E8FE0] rounded-full" />
-            <span className="text-[#1E8FE0] text-[11px] tracking-[0.3em] font-bold uppercase">Asiakaspalaute</span>
+            <div className="h-[3px] w-8 bg-ania-blue rounded-full" />
+            <span className="text-ania-blue text-[11px] tracking-[0.3em] font-bold uppercase">Asiakaspalaute</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#0B1628] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-ania-navy tracking-tight">
             Asiakkaiden kokemuksia
           </h2>
         </motion.div>
@@ -41,28 +41,28 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="bg-[#F5F7FA] border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md hover:border-[#1E8FE0]/20 transition-all duration-200"
+              className="bg-ania-surface border border-ania-blue/10 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md hover:border-ania-blue/30 transition-all duration-200"
             >
               {/* Stars */}
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, s) => (
-                  <Star key={s} className="w-3.5 h-3.5 fill-[#1E8FE0] text-[#1E8FE0]" />
+                  <Star key={s} className="w-3.5 h-3.5 fill-ania-gold text-ania-gold" />
                 ))}
               </div>
 
               {/* Quote icon */}
-              <Quote className="w-6 h-6 text-[#1E8FE0]/20 -mb-2" />
+              <Quote className="w-6 h-6 text-ania-blue/20 -mb-2" />
 
               {/* Text */}
               <p className="text-gray-600 text-sm leading-relaxed flex-1">"{r.text}"</p>
 
               {/* Author */}
               <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
-                <div className="w-9 h-9 rounded-full bg-[#1E8FE0] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                <div className="w-9 h-9 rounded-full bg-ania-blue flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                   {r.name.charAt(0)}
                 </div>
                 <div>
-                  <div className="text-[#0B1628] font-bold text-sm">{r.name}</div>
+                  <div className="text-ania-navy font-bold text-sm">{r.name}</div>
                   <div className="text-gray-400 text-xs">{r.car}</div>
                 </div>
               </div>
